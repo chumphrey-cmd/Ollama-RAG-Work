@@ -1,6 +1,8 @@
 NOTE: Utilizing workstation with the following specs: 3 NVIDIA RTX A6000
 Tutorial Followed: https://medium.com/@mbrazel/open-source-self-hosted-rag-llm-server-with-chromadb-docker-ollama-7e6c6913da7a
 
+NOTE: utilizing python 3.10 virtual environment.
+
 1. Deployed WSL2 on machine and initiated CUDA installation on WSL2
 2. Initiated Docker Deployment from personal laptop
   2a. $ sudo docker run -p 8000:8000 chromadb/chroma 
