@@ -1,4 +1,4 @@
-NOTE: Utilized personal laptop with 1 NVIDIA RTX 3080
+NOTE: Utilizing workstation with the following specs: 3 NVIDIA RTX A6000
 Tutorial Followed: https://medium.com/@mbrazel/open-source-self-hosted-rag-llm-server-with-chromadb-docker-ollama-7e6c6913da7a
 
 1. Deployed WSL2 on machine and initiated CUDA installation on WSL2
