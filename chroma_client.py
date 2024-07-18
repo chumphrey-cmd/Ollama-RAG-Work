@@ -1,3 +1,5 @@
+#NOTE: only re-run chroma_client if you modify, delete, or update information within you database!
+
 import uuid
 import chromadb
 from langchain_community.vectorstores import Chroma
@@ -13,7 +15,7 @@ docs = load_and_split_documents(directory_path)
 embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # 3. Create ChromaDB Client
-client = chromadb.HttpClient(host='172.20.132.45', port=8000)
+client = chromadb.HttpClient(host='172.31.44.251', port=8000) #Replace with your host eth0 IP
 
 # 4. Create/Get Collection
 collection_name = "my_collection"
