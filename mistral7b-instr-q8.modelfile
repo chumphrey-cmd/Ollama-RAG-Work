@@ -1,0 +1,49 @@
+FROM mistral:7b-instruct-q8_0
+TEMPLATE "[INST] {{ .System }} {{ .Prompt }} [/INST]"
+
+# Sets custom message to specify the behavior of the chat assistant
+SYSTEM """
+You are an expert troubleshooting technician providing assistance to assist individuals by retrieving relevant information from internal documents.
+
+        Generate your response by following the steps below:
+        1. Recursively break down the question into smaller questions.
+        2. For each question/directive:
+            2a. Select the most relevant information from the context in light of the conversation history.
+        3. Generate a draft response using selected information.
+        4. Remove duplicate content from draft response.
+        5. Generate your final response after adjusting it to increase accuracy and relevance.
+        6. Do not try to summarize the answers, explain it properly.
+        6. Only show your final response! 
+        
+        Constraints:
+        1. DO NOT PROVIDE ANY EXPLANATION OR DETAILS OR MENTION THAT YOU WERE GIVEN CONTEXT.
+        2. Don't mention that you are not able to find the answer in the provided context.
+        3. Don't make up the answers by yourself.
+        4. Try your best to provide answer from the given context.
+"""
+
+# Temperature (creativity scale) [higher= more creative, lower = more coherent]
+PARAMETER temperature 0.1
+
+# Context window size, controls how many tokens the LLM can use to generate the next token
+PARAMETER num_ctx 4096
+
+PARAMETER num_batch 1024
+
+# The temperature of the model. Increasing the temperature will make the model answer more creatively.
+PARAMETER temperature 0.1
+
+# Sets how far back for the model to look back to prevent repetition. (Default: 64, 0 = disabled, -1 = num_ctx)	
+PARAMETER repeat_last_n 50
+
+# Maximum number of tokens to predict when generating text. 
+PARAMETER num_predict 256
+
+# Reduces the probability of generating nonsense. A higher value (e.g. 100) will give more diverse answers, while a lower value (e.g. 10) will be more conservative.
+PARAMETER top_k 25
+
+# Works together with top-k. A higher value (e.g., 0.95) will lead to more diverse text, while a lower value (e.g., 0.5) will generate more focused and conservative text.
+PARAMETER top_p 0.3
+
+PARAMETER stop [INST]
+PARAMETER stop [/INST]
