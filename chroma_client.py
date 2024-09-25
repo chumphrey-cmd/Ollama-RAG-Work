@@ -15,7 +15,7 @@ docs = load_and_split_documents(directory_path)
 embedding_function = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # 3. Create ChromaDB Client
-client = chromadb.HttpClient(host='172.31.44.251', port=8000) #Replace with your host eth0 IP
+client = chromadb.HttpClient(host='YOUR_WSL_IP_GOES_HERE', port=8000) #Replace with your host eth0 IP
 
 # 4. Create/Get Collection
 collection_name = "my_collection"
@@ -43,16 +43,3 @@ db = Chroma(
     collection_name="my_collection",
     embedding_function=embedding_function,
 )
-
-#---Sanity Check---#
-"""
-# 7. Query and Retrieve Results
-query = "What command do I use to access minicom?"
-docs = db.similarity_search(query)
-
-# 8. Print Results (If found)
-if docs:
-    print(docs[0].page_content)
-else:
-    print("No relevant documents found.")
-"""
