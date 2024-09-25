@@ -47,7 +47,7 @@ def get_ques_response_prompt(question):
 
 def generate_rag_response(content,question):
     client = Client(host='http://localhost:11434') # Ollama typically runs on port 11434 verify Ollama is running by browsing to: http://localhost:11434/
-    stream = client.chat(model='llama3:70b', messages=[
+    stream = client.chat(model='mistral-custom:latest', messages=[
     {"role": "system", "content": get_system_message_rag(content)},            
     {"role": "user", "content": get_ques_response_prompt(question)}
     ], stream=True)

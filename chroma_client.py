@@ -47,7 +47,7 @@ db = Chroma(
 #---Sanity Check---#
 """
 # 7. Query and Retrieve Results
-query = "Minicom"
+query = "What command do I use to access minicom?"
 docs = db.similarity_search(query)
 
 # 8. Print Results (If found)
