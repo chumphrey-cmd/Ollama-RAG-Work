@@ -1,6 +1,6 @@
 # Ollama RAG
 
-**NOTE: Utilized personal laptop with 3 NVIDIA RTX A6000 in a Windows Environment**
+**NOTE: Utilized PC with 3 NVIDIA RTX A6000 in a Windows Environment**
 
 ## Prerequisites
 
